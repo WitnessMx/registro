@@ -92,6 +92,7 @@ $boton_play.addEventListener("click", function() {
         // y le pasamos el id de dispositivo
         if (dispositivosDeVideo.length > 0) {
         // Mostrar stream con el ID del primer dispositivo, luego el usuario puede cambiar
+            alert(dispositivosDeVideo.length);
             mostrarStream(dispositivosDeVideo[1].deviceId);
         }
     });
