@@ -1,6 +1,6 @@
 const RegistroPWA = "RegistroEIMP@v3-cache";
 const assets = [
-  "/",
+  "/registro/",
   "/registro/index.html",
   "/registro/styles/style_calibracion2023.css",
   "/registro/styles/leaflet.css",
