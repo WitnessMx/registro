@@ -1,4 +1,4 @@
-const RegistroPWA = "RegistroEIMP@v3-cache";
+const RegistroPWA = "RegistroUbic@v3-cache";
 const assets = [
   "/registro/",
   "/registro/index.html",
