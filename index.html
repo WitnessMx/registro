@@ -524,7 +524,7 @@ document.getElementById("boton_buscar").addEventListener("click",function(e){
 if ("serviceWorker" in navigator) {
         window.addEventListener("load", function () {
           navigator.serviceWorker
-            .register("/sw.js")
+            .register("/registro/sw.js")
             .then((res) => console.log("service worker registrado"))
             .catch((err) => console.log("service worker not registrado", err));
         });
