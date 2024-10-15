@@ -1,0 +1,540 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Ubicaciones</title>
+    <link rel="manifest" href="manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="styles/imagenes/registro.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="#db4938" />
+    <meta name="theme-color" content="#db4938" />
+    <link rel="canonical" href="https://witnessmx.github.io/registro/" />
+    <!----PARA EL MAPA                        ----->
+    <link rel="stylesheet" href="styles/leaflet.css"/>
+    <link rel="stylesheet" href="styles/style_calibracion2023.css">
+    <script src="scripts/leaflet.js"></script>
+    
+</head>
+<body>
+    <form action="" name="enviar_form">
+    <div class="contenedor">
+        <table class="Testandar" style="margin-top: 3px;" >
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td >
+                       <table>
+                            <thead>
+                                <th colspan="2" >Ubicación</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                   <td colspan="2"><div id="mapa"></div></td>
+                                </tr>
+                                <tr class="ColorDefault">                                
+                                    <td><label class="labelEstandar">Coordenada X</label><br>
+                                        <input class="inputEstandar-col2" type="number" id="x" name="cord_x" readonly></td><!---->
+                                    <td><label class="labelEstandar">Coordenada Y</label><br>
+                                        <input class="inputEstandar-col2" type="number" id="y" name="cord_y" readonly></td><!---->                                
+                                </tr>
+                                
+                            </tbody>
+                       </table> 
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar" style="margin-top:3px;">
+            <tbody>
+                <tr class="ColorEstandar" >
+                    <td >
+                        <table>
+                            <thead>
+                                <th colspan="2">Descripción del Instrumento</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                    <td><label class="labelEstandar">Id Gage</label><br>
+                                        <input class="inputEstandar-id" type="text" id="idGage" name="id_gage" required></td><!---->
+                                    <td ><label class="labelEstandar">Descripción</label><br>
+                                        <input class="inputEstandar-desc" type="text" id="DesGage" name="descripcion" required></td><!---->
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><label class="labelEstandar">Tipo de Gage</label><br>
+                                        <select class="inputEstandar-id"  name="tipo" id="TipoGage" style="font-size: 18px;" required>
+                                            <option value="">...</option>
+                                            <option value= "1.01 - Final Gage (Checking Fixture)">1.01 - Final Gage (Checking Fixture)</option>
+                                            <option value= "2.01 - Gage GO - NO GO">2.01 - Gage GO - NO GO</option>
+                                            <option value= "3.01 - Vernier / Caliper">3.01 - Vernier / Caliper</option>
+                                            <option value= "3.02 - Escala / Scale">3.02 - Escala / Scale</option>
+                                            <option value= "3.03 - Flexometro / Tape measure">3.03 - Flexometro / Tape measure</option>
+                                            <option value= "3.04 - Micrometro / Micrometer">3.04 - Micrometro / Micrometer</option>
+                                            <option value= "3.05 - Regla de vidrio / Glass calibration scale">3.05 - Regla de vidrio / Glass calibration scale</option>
+                                            <option value= "3.06 - Bloques patron / Gage blocks">3.06 - Bloques patron / Gage blocks</option>
+                                            <option value= "3.07 - Masa patron / Standard weight">3.07 - Masa patron / Standard weight</option>
+                                            <option value= "3.08 - Tacometro digital / Digital tachometer">3.08 - Tacometro digital / Digital tachometer</option>
+                                            <option value= "3.09 - Termohigrometro / Termo-higrometer">3.09 - Termohigrometro / Termo-higrometer</option>
+                                            <option value= "3.10 - Manometro digital / Digital manometer">3.10 - Manometro digital / Digital manometer</option>
+                                            <option value= "3.11 - Termometro / Calibrator thermometer">3.11 - Termometro / Calibrator thermometer</option>
+                                            <option value= "3.12 - Regla de Acero">3.12 - Regla de Acero</option>
+                                            <option value= "4.01 - Termometro / Thermometer">4.01 - Termometro / Thermometer</option>
+                                            <option value= "4.02 - Indicador digital / Drop indicator">4.02 - Indicador digital / Drop indicator</option>
+                                            <option value= "4.03 - Cronometro / Stopwatch">4.03 - Cronometro / Stopwatch</option>
+                                            <option value= "4.04 - Medidor de brillo / Gloss meter">4.04 - Medidor de brillo / Gloss meter</option>
+                                            <option value= "4.05 - Video gage">4.05 - Video gage</option>
+                                            <option value= "4.06 - Durometro / Durometer">4.06 - Durometro / Durometer</option>
+                                            <option value= "4.07 - Celda de carga / Load cell">4.07 - Celda de carga / Load cell</option>
+                                            <option value= "4.08 - Testing machine INSTRON">4.08 - Testing machine INSTRON</option>
+                                            <option value= "4.09 - MDR 2000 Rheometer">4.09 - MDR 2000 Rheometer</option>
+                                            <option value= "4.10 - MV 2000 Mooney">4.10 - MV 2000 Mooney</option>
+                                            <option value= "4.11 - Microscopio / Miscroscope">4.11 - Microscopio / Miscroscope</option>
+                                            <option value= "4.12 - Bascula / Weigh Scale">4.12 - Bascula / Weigh Scale</option>
+                                            <option value= "4.13 - Crockmeter">4.13 - Crockmeter</option>
+                                            <option value= "4.14 - Bytewise standard">4.14 - Bytewise standard</option>
+                                            <option value= "4.15 - Jalador / Puller">4.15 - Jalador / Puller</option>
+                                            <option value= "4.16 - Comparador Optico / Optical comparator 10X">4.16 - Comparador Optico / Optical comparator 10X</option>
+                                            <option value= "4.17 - Bomba peristaltica / Peristaltic Pump">4.17 - Bomba peristaltica / Peristaltic Pump</option>
+                                            <option value= "4.18 - Copa Zhan / Zhan Cup">4.18 - Copa Zhan / Zhan Cup</option>
+                                            <option value= "4.20 - Navaja Insercion/Extraccion">4.20 - Navaja Insercion/Extraccion</option>
+                                            <option value= "4.21 - Sistema de Medicion">4.21 - Sistema de Medicion</option>
+                                            <option value= "4.22 - Torquimetro / Torque Screwdriver">4.22 - Torquimetro / Torque Screwdriver</option>
+                                            <option value= "4.23 - Comparador Digital">4.23 - Comparador Digital</option>
+                                            <option value= "4.23 - Pesa Pull">4.23 - Pesa Pull</option>
+                                            <option value= "4.25 - Copa DIN/ DIN cup">4.25 - Copa DIN/ DIN cup</option>
+                                            <option value= "5.01 - Controlador de Temperatura">5.01 - Controlador de Temperatura</option>
+                                            <option value= "5.02 - Instrumento de Extrusion">5.02 - Instrumento de Extrusion</option>
+                                    </select></td><!---->
+                                    <td ><label class="labelEstandar">Localizacion</label><br>
+                                        <input class="inputEstandar-desc" type="text" id="LocGage" name="localizacion" required></td><!---->
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <table>
+                                            <tbody>
+                                                <tr class="ColorDefault">
+                                                    <td><label class="labelEstandar">Marca</label><br>
+                                                        <input class="inputEstandar-min" type="text" id="ModGage" name="marca" required></td><!---->
+                                                
+                                                    <td><label class="labelEstandar">Fecha de Calibracion</label><br>
+                                                    <input class="inputEstandar-min" type="date" id="FechaCal" name="fecha_cal" required></td><!---->  
+                                                    <td><label class="labelEstandar">Reg</label><br>
+                                                        <input class="inputEstandar-min" type="text" id="reg" name="reg" readonly></td><!---->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                    
+                                </tr>
+
+                                <tr class="ColorDefault">
+                                    <td ><label class="labelEstandar">Estatus</label><br>
+                                        <select class="inputEstandar-id"  name="estatus" id="2m" required>
+                                            <option value="">...</option>
+                                            <option value="Activo">Activo</option>
+                                            <option value="Activo / Falta de documentos">Activo / Falta de documentos</option>
+                                            <option value="No Activo / Baja">No Activo / Baja</option>
+                                    </select></td>
+                                    <td ><label class="labelEstandar">Motivo</label><br>
+                                        <input class="inputEstandar-desc" type="text" id="idmotivo" name="motivo" required></td><!---->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <table class="Testandar" style="margin-top: 3px;">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td>
+                        <table>
+                            <thead>
+                                <th colspan="2">Capturar Imagen</th>
+                            </thead>
+                            <tbody>
+                                <tr class="ColorDefault">
+                                    
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><input class="inputEstandar-col2" type="button" id="boton-play" value="Ver Imagen"></td>
+                                    <td><input class="inputEstandar-col2" type="button" id="boton-cancelar-play" value="Cancelar"></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                   <td colspan="2"><select class="inputEstandar-full" name="seleccionarDispositivo" id="seleccionarDispositivo"></select></td> 
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td colspan="2"><video id="video" style="height: 2px;"></video></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><canvas id="canvas" class="canvas"></canvas></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td>
+                                        <input class="inputEstandar-col2" type="button" id="boton-pause" value="Tomar Captura">
+                                    </td><!---->
+                                    <td><input class="inputEstandar-col2" type="button" id="boton-cancelar-pause" value="Cancelar"></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td><label class="labelEstandar">Archivo</label><br>
+                                        <input class="inputEstandar-col2" type="text" id="idGage1" name="archivo_imagen" style="font-size: 20px;" readonly></td><!---->
+                                        <td><input class="inputEstandar-col2" type="button" id="boton-guardar" value="Guardar Imagen"></td>
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td colspan="2"><label class="labelEstandar">link</label><br>
+                                        <input class="inputEstandar-full" type="text" id="linkGG" name="archivo_link" style="font-size: 20px;max-width:300px ;" readonly></td>
+                                       
+                                </tr>
+                                <tr class="ColorDefault">
+                                    <td colspan="2"> <a class="inputEstandar-full" href="" id="linkA" style="font-size: 15px;"></a>
+                                    </td><!---->
+                                
+                                </tr>
+                              
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="Testandar" id="Tabla-boton-guardar" style="margin-top: 3px;">
+            <tbody>
+                <tr class="ColorEstandar">
+                    <td class="ColorDefault">
+                        <input class="botonEstandar" name="boton_completado" id="boton_completado" type="submit" value="Registrar" style="height: 52px;font-size: 25pt;">
+                        <input class="botonEstandar" name="boton_buscar" id="boton_buscar" type="button" value="Buscar" style="display: none;">
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    </div>
+    <script>
+        var Dattos;
+    fetch("https://opensheet.elk.sh/1ESTRSn1tCdvVGV3XdCvDzrrzDQD2zlMInhF4MiqY1dU/Registro")
+                .then((res) => res.json())
+                .then((data)=>{
+                    
+                    CargarElementosDeMapaconID(data)
+
+                });
+     function buscarID(idG){
+        console.log(Dattos.length);
+        let pos=Dattos.length+2;
+        for (let i = 0; i < Dattos.length; i++) {
+            if(idG==Dattos[i].gage_id){
+                pos=i+2;
+               
+            }
+            else{
+                
+            }
+        }
+        
+        return pos;
+     }
+document.getElementById("boton_buscar").addEventListener("click",function(e){
+    let reg=document.getElementById("reg")
+    let idd=document.getElementById("idGage");
+    reg.value=buscarID(idd.value);
+})
+
+        const scriptURL='https://script.google.com/macros/s/AKfycby1VfbMuJsFRRDW7KGve94vwoMPBOsZkZj70IrlvnzM9gBYbAu-1kv_-1U_n-c7OKo5ow/exec'
+        const form=document.forms['enviar_form']
+        form.addEventListener('submit',e=>{
+            let reg=document.getElementById("reg")
+            let idd=document.getElementById("idGage");
+            reg.value=buscarID(idd.value);
+            
+            e.preventDefault()
+                fetch(scriptURL,{method:'POST',body: new FormData(form)})
+                .then(response=>response.text())
+                .then(data=>{alert(data),window.location.reload();})
+                .catch(error=>console.log("error!",error.message))
+
+
+        })
+     
+
+        function MesLetra(vMesNumero){
+            switch (vMesNumero) {
+                case 1:
+                    return "Enero"
+                    break;
+                case 2:
+                    return "Febrero"
+                    break;
+                case 3:
+                    return "Marzo"
+                    break;
+                case 4:
+                    return "Abril"
+                    break;
+                case 5:
+                    return "Mayo"
+                    break;
+                case 6:
+                    return "Junio"
+                    break;
+                case 7:
+                    return "Julio"
+                    break;
+                case 8:
+                    return "Agosto"
+                    break;
+                case 9:
+                    return "Septiembre"
+                    break;
+                case 10:
+                    return "Octubre"
+                    break;
+                case 11:
+                    return "Noviembre"
+                    break;
+                case 12:
+                    return "Diciembre"
+                    break;
+                default:
+                    break;
+            }
+        }
+        L.NumberedDivIcon = L.Icon.extend({
+          options: {
+            iconUrl: 'https://cdn.glitch.global/6b585f2a-c55d-4dae-826d-c1a575827b5f/styles%2Fimagenes%2Fmarcadores%2Fmark3.png?v=1728399034837',//<---------*******
+            number: '',
+            status:'', //<--cambio se agrego
+            EstudioVenc:'',//<---cambio Estudios
+            shadowUrl: null,
+            iconSize: new L.Point(25, 25),
+            iconAnchor: new L.Point(12.5, 25),
+            popupAnchor: new L.Point(0, -40),
+            /*
+            iconAnchor: (Point)
+            popupAnchor: (Point)
+            */
+            className: 'dev-de-icono'
+          },
+
+          createIcon: function () {
+            var div = document.createElement('div');
+            var img = this._createImg(this.options['iconUrl']);
+            var numdiv = document.createElement('div');
+              //cambio ->>> numdiv.setAttribute ( "class", "numero" );
+                //colores por fecha de estudio
+            let vFechaHoy= new Date();
+            let vFechaEstudio=new Date(this.options['EstudioVenc']);
+            let vEstatusEstudio;
+            if (vFechaEstudio!='Invalid Date') {
+                    if(vFechaHoy>=vFechaEstudio){
+                    // console.log("<vencido> "+vFechaEstudio);
+                        vEstatusEstudio='vencido';
+                    }
+                    else{
+                        //console.log("<vigente> "+vFechaEstudio);
+                        vEstatusEstudio='vigente';
+                    }
+
+                    switch (this.options['status']) {
+                        case 'Activo':
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numero_estudioVigente" );  
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numero_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                            
+                            break;
+                        case 'Activo / Falta de documentos':
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numeroPendiente_estudioVigente" );  
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numeroPendiente_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                            break;
+                        case 'Sin Estatus':
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numeroSinEstatus_estudioVigente" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numeroSinEstatus_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                        
+                            break;
+                        default:
+                            numdiv.setAttribute ( "class", "numeroBaja" );
+                            numdiv.setAttribute("onclick","IdShow(this);");
+                            break;
+                    }
+
+
+            } else {
+            if (this.options['status']=="Activo") {
+                numdiv.setAttribute ( "class", "numero" );
+                numdiv.setAttribute("onclick","IdShow(this);");
+            } else {
+                if (this.options['status']=="Activo / Falta de documentos") {
+                    numdiv.setAttribute ( "class", "numeroPendiente" );
+                    numdiv.setAttribute("onclick","IdShow(this);");
+                } else if(this.options['status']=="Sin Estatus") {
+                    numdiv.setAttribute ( "class", "numeroSinEstatus" );
+                    numdiv.setAttribute("onclick","IdShow(this);");
+                }else{
+                    numdiv.setAttribute ( "class", "numeroBaja" );
+                    numdiv.setAttribute("onclick","IdShow(this);");
+                };
+                
+            }  
+
+
+            
+            } //<<--cambio
+            numdiv.innerHTML = this.options['number'] || ''; 
+            div.appendChild ( img );
+            div.appendChild ( numdiv );
+            this._setIconStyles(div, 'icon');
+            return div;
+          },
+
+          //you could change this to add a shadow like in the normal marker if you really wanted
+          createShadow: function () {
+            return null;
+          }
+        });
+ function html_info(Datos){
+    let idLink;
+    let linkG=Datos[i].link;
+    
+    if(typeof(linkG)==='undefined'){
+        idLink='1Zjl3Jwg0Hlz3i3_Ym0jEo60a8mzNqmQH'
+    }else{
+        idLink=linkG.split("/")[5];
+    }
+   // 
+    
+    
+    switch (Datos[i].estatus) {
+        case 'Activo':
+            var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+
+        case 'Activo / Falta de documentos':
+        var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+
+        case 'No Activo / Baja':
+        var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+    
+        default:
+            break;
+    }
+    return InfoHTML;
+};
+        
+
+        function CargarElementosDeMapaconID(Datos){
+            Dattos=Datos;
+            //console.log(Datos);
+            for (i in Datos){
+                if(Datos[i].UbicacionX==='1100'){
+                }
+                else{
+                //--desglozar fecha
+                let fecha= new Date(Datos[i].fecha_cal);
+                let vFechaCal=MesLetra(fecha.getMonth()+1)+ " " + fecha.getFullYear();
+               //console.log(Datos[i].Gage_iD + " " + Datos[i].Calibracion + " " + vFechaCal);
+                //_---
+
+                //--Incluyo Fecha estudio
+                let fechaEst=new Date(Datos[i].fecha_estudio);
+                let vFechaEst=fechaEst.getFullYear()+" "+MesLetra(fechaEst.getMonth()+1);
+
+                //console.log(Datos[i].UbicacionX);
+                
+            
+                
+                //console.log(ubiXok,ubiYok);   
+                //--cambio
+                var marker3 = new L.Marker(
+                        new xy(Datos[i].UbicacionX,Datos[i].UbicacionY), 
+                            {//<---cambio icon:new L.NumberedDivIcon({number:Datos[i].Gage_iD})
+                                icon:new L.NumberedDivIcon({number:Datos[i].gage_id,status:Datos[i].estatus,EstudioVenc:Datos[i].fecha_estudio}),
+                                tags:[Datos[i].estatus,Datos[i].tipo,vFechaCal,vFechaEst]
+                            }
+                    ).addTo(map);
+                marker3.bindPopup(html_info(Datos));
+
+
+                }
+            }
+        }
+   
+        function IdShow(id){
+           // console.log(Dattos);
+            
+            for (let i = 0; i < Dattos.length; i++) {
+                        if(Dattos[i].gage_id==id.textContent){
+                            //console.log(Dattos[i]);
+                            var ID=document.getElementById('idGage');
+                            var DESC=document.getElementById('DesGage');
+                            var TIPO=document.getElementById('TipoGage');
+                            var LOC=document.getElementById('LocGage');
+                            var MOD=document.getElementById('ModGage');
+                            var FECA=document.getElementById('FechaCal');
+                            var MOT=document.getElementById('idmotivo');
+                            var ubX=document.getElementById('x');
+                            var ubY=document.getElementById('y');
+                            var linkG=document.getElementById('linkGG');
+                            var linkA=document.getElementById('linkA');
+                            var ARC=document.getElementById('idGage1');
+                            var ESTA=document.getElementById('2m');
+                            ubX.value=Dattos[i].UbicacionX;
+                            ubY.value=Dattos[i].UbicacionY;
+                            ID.value=Dattos[i].gage_id;
+                            DESC.value=Dattos[i].descripcion;
+                            TIPO.value=Dattos[i].tipo;
+                            LOC.value=Dattos[i].localizacion;
+                            MOD.value=Dattos[i].marca;
+
+                            let fecha1=Dattos[i].fecha_cal.split("/");
+                            console.log(fecha1[2]+"-"+fecha1[1]+"-"+fecha1[0]);
+
+                            FECA.value=fecha1[2]+"-"+fecha1[1]+"-"+fecha1[0];
+
+                            ESTA.value=Dattos[i].estatus;
+                            MOT.value=Dattos[i].motivo;       
+                            linkG.value=Dattos[i].link;  
+                            ARC.value=Dattos[i].ruta     
+                            linkA.href=Dattos[i].link; 
+                            linkA.innerHTML=Dattos[i].link; 
+                        }
+                    }      
+                    
+        }
+if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((res) => console.log("service worker registrado"))
+            .catch((err) => console.log("service worker not registrado", err));
+        });
+      }
+        
+    </script>
+    
+    <script src="scripts/Captura.js"></script>
+    <script src="scripts/mapa.js"></script>
+  
+  
+</body>
+</html>
