@@ -8,8 +8,6 @@ $select=document.querySelector('#seleccionarDispositivo');
 $canvas=document.querySelector('#canvas')
 var video=document.querySelector('#video');
 
-
-
 const limpiarSelect = () => {
     for (let x = $select.options.length - 1; x >= 0; x--)
     $select.remove(x);
