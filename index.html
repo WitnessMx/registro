@@ -485,7 +485,29 @@ document.getElementById("idGage").addEventListener("change",function(e){
     
     switch (Datos[i].estatus) {
 
-         case '-Activo'://<---2025
+          case '-Activo'://<---2025
+            var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+
+        case '-Activo / Falta de documentos'://<---2025
+            var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+
+        case '-No Activo / Baja'://<---2025
+            var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+        case '-Bloqueado'://<---2025
+            var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
+        case '-Extraviado'://<---2025
             var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
             '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
                     '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
