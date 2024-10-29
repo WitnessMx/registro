@@ -21,19 +21,20 @@
 :root{
     
 
-    --fondoTabla-color:#ffffff;
-    --default-color: #b5d2dc ;
-    --altern-color:#839ea7;
+
+    --fondoTabla-color:#813a00;
+    --default-color: #ffcf86 ;
+    --altern-color:#bb9900;
 
     --map-color-bgd:#809096;
-
+    --popup-wraper:rgb(41, 177, 255);
     --bodybgd-color:#454749;
 
     --t-color:#5f4242;
 
-    --th-color-bRH:#c1c0fb  ;
-    --th-color-bBT:#b2cce7  ;
-    --th-color-bgd:#6f7f8e ;
+    --th-color-bRH:#ffae00  ;
+    --th-color-bBT:#ff0000  ;
+    --th-color-bgd:#be7200 ;
 
     --map-color-bor:#000000 ;
     --text-lbl-color:#000000;
@@ -412,7 +413,7 @@ margin: 0;
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-background: rgb(161, 218, 252);
+background:var(--popup-wraper);
 color: rgb(0, 0, 0);
 
 }
