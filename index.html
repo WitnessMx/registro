@@ -239,6 +239,12 @@ document.getElementById("boton_buscar").addEventListener("click",function(e){
     reg.value=buscarID(idd.value);
 })
 
+document.getElementById("idGage").addEventListener("change",function(e){
+    console.log("idCambiado");
+    document.getElementById("linkGG").value="";
+    document.getElementById("linkA").innerHTML="";
+});
+
         const scriptURL='https://script.google.com/macros/s/AKfycby1VfbMuJsFRRDW7KGve94vwoMPBOsZkZj70IrlvnzM9gBYbAu-1kv_-1U_n-c7OKo5ow/exec'
         const form=document.forms['enviar_form']
         form.addEventListener('submit',e=>{
