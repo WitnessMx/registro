@@ -452,6 +452,86 @@ border: none;
     
 }
 
+.leaflet-marker-icon ._Pendiente{
+    position: relative;
+    color:rgb(10, 0, 0);
+    top: -42px;
+    /*background-color: rgb(77, 118, 252);*/
+    background-color: rgb(255, 230, 87);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto*/
+    width: calc(var(--tam_texto) + 30px);
+    min-width: 60px;
+    /*max-width: var(--max-width);*/
+    margin-left: -18px;
+    text-align: center;
+    
+}
+
+.leaflet-marker-icon ._NoActivo{
+    position: relative;
+    color:rgb(10, 0, 0);
+    top: -42px;
+    /*background-color: rgb(77, 118, 252);*/
+    background-color: rgb(196, 195, 194);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto*/
+    width: calc(var(--tam_texto) + 30px);
+    min-width: 60px;
+    /*max-width: var(--max-width);*/
+    margin-left: -18px;
+    text-align: center;
+    
+}
+
+.leaflet-marker-icon ._Bloqueado{
+    position: relative;
+    color:rgb(10, 0, 0);
+    top: -42px;
+    /*background-color: rgb(77, 118, 252);*/
+    background-color: rgb(204, 48, 0);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto*/
+    width: calc(var(--tam_texto) + 30px);
+    min-width: 60px;
+    /*max-width: var(--max-width);*/
+    margin-left: -18px;
+    text-align: center;
+    
+}
+
+.leaflet-marker-icon ._Extraviado{
+    position: relative;
+    color:rgb(10, 0, 0);
+    top: -42px;
+    /*background-color: rgb(77, 118, 252);*/
+    background-color: rgb(118, 0, 141);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    font-size: var(--tam_texto);
+    /*tamaño del cuadro de texto*/
+    width: calc(var(--tam_texto) + 30px);
+    min-width: 60px;
+    /*max-width: var(--max-width);*/
+    margin-left: -18px;
+    text-align: center;
+    
+}
+
 
 
 .leaflet-marker-icon .numero{
