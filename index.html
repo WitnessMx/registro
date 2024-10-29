@@ -133,6 +133,7 @@
                                             <option value="-Activo / Falta de documentos">-Activo / Falta de documentos</option>
                                             <option value="-No Activo / Baja">-No Activo / Baja</option>
                                             <option value="-Extraviado">-Extraviado</option>
+                                            <option value="-Bloqueado">-Bloqueado</option>
                                             <option value="Activo">Activo</option>
                                             <option value="Activo / Falta de documentos">Activo / Falta de documentos</option>
                                             <option value="No Activo / Baja">No Activo / Baja</option>
@@ -391,7 +392,45 @@ document.getElementById("idGage").addEventListener("change",function(e){
 
 
             } else {
-             if (this.options['status']=='-Activo') {//<-----2025
+
+                switch (this.options['status']) {
+                    case '-Activo':
+                        numdiv.setAttribute ( "class", "_Activo" );
+                        numdiv.setAttribute("onclick","IdShow(this);");    
+                        break;
+                    case '-Activo / Falta de documentos':
+                        numdiv.setAttribute ( "class", "_Pendiente" );
+                        numdiv.setAttribute("onclick","IdShow(this);");
+                    case '-No Activo / Baja':
+                        numdiv.setAttribute ( "class", "_NoActivo" );//<----<-<-<-<
+                        numdiv.setAttribute("onclick","IdShow(this);");                   
+                        break;
+                    case '-Bloqueado':
+                        numdiv.setAttribute ( "class", "_Bloqueado" );//<----<-<-<-<
+                        numdiv.setAttribute("onclick","IdShow(this);");
+                        break;
+                    case 'Activo':
+                        numdiv.setAttribute ( "class", "numero" );
+                        numdiv.setAttribute("onclick","IdShow(this);"); 
+                        break;
+                    case 'Activo / Falta de documentos':
+                        numdiv.setAttribute ( "class", "numeroPendiente" );
+                        numdiv.setAttribute("onclick","IdShow(this);");
+                        break;
+                    case 'No Activo / Baja':
+                        numdiv.setAttribute ( "class", "numeroBaja" );
+                        numdiv.setAttribute("onclick","IdShow(this);");
+                        break;
+
+
+                    default:
+                        break;
+                }
+
+
+            
+/*
+            if (this.options['status']=='-Activo') {//<-----2025
                 numdiv.setAttribute ( "class", "_Activo" );
                 numdiv.setAttribute("onclick","IdShow(this);");
             }    //--->2025
@@ -410,11 +449,11 @@ document.getElementById("idGage").addEventListener("change",function(e){
                     numdiv.setAttribute("onclick","IdShow(this);");
                 };
                 
-            }  
+            } 
 
 
             
-            } //<<--cambio
+            } //<<--cambio*/
             numdiv.innerHTML = this.options['number'] || ''; 
             div.appendChild ( img );
             div.appendChild ( numdiv );
