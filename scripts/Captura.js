@@ -90,7 +90,7 @@ $boton_play.addEventListener("click", function() {
         //console.log(dispositivosDeVideo.length);
         // Vemos si encontramos algún dispositivo, y en caso de que si, entonces llamamos a la función
         // y le pasamos el id de dispositivo
-        if (dispositivosDeVideo.length > 0 && dispositivoDeVideo.length < 2) {
+        if (dispositivosDeVideo.length > 0 && dispositivosDeVideo.length < 2) {
         // Mostrar stream con el ID del primer dispositivo, luego el usuario puede cambiar
             mostrarStream(dispositivosDeVideo[0].deviceId);
         }else{
