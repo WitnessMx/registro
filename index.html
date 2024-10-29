@@ -341,6 +341,15 @@ document.getElementById("idGage").addEventListener("change",function(e){
                     }
 
                     switch (this.options['status']) {
+                        case '-Activo'://<---------------------------------2025
+                            if(vEstatusEstudio=='vigente'){
+                                numdiv.setAttribute ( "class", "numero_estudioVigente" );  
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }else{
+                                numdiv.setAttribute ( "class", "numero_estudioVencido" ); 
+                                numdiv.setAttribute("onclick","IdShow(this);");
+                            }
+                            break;//-------------------->2025
                         case 'Activo':
                             if(vEstatusEstudio=='vigente'){
                                 numdiv.setAttribute ( "class", "numero_estudioVigente" );  
@@ -378,7 +387,11 @@ document.getElementById("idGage").addEventListener("change",function(e){
 
 
             } else {
-            if (this.options['status']=="Activo") {
+             if (this.options['status']=='-Activo') {//<-----2025
+                numdiv.setAttribute ( "class", "_Activo" );
+                numdiv.setAttribute("onclick","IdShow(this);");
+            }    //--->2025
+            else if (this.options['status']=="Activo") {
                 numdiv.setAttribute ( "class", "numero" );
                 numdiv.setAttribute("onclick","IdShow(this);");
             } else {
@@ -423,6 +436,12 @@ document.getElementById("idGage").addEventListener("change",function(e){
     
     
     switch (Datos[i].estatus) {
+
+         case '-Activo'://<---2025
+            var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
+            '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
+                    '<div style="text-align:center"><font size="1.5pt">  [ X: '+Datos[i].UbicacionX+' , Y: '+Datos[i].UbicacionY+' ]  </font>';
+            break;
         case 'Activo':
             var InfoHTML='<div style="text-align:center;font-size:22pt">'+Datos[i].gage_id+'</div>'+
             '<img src="https://lh3.googleusercontent.com/d/'+ idLink +'=w1000?authuser=0" alt="" width="150x" style="padding:3px" >'+
