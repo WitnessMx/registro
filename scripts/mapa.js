@@ -39,7 +39,7 @@ popup
 
 map.on('click', onMapClick);
 //+++++++++++++++++++++++++++++++
-map.setView(xy(500, 850), -1);
+map.setView(xy(500, 850), 1);
 
 
 
