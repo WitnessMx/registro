@@ -124,7 +124,7 @@ $boton_play.addEventListener("click", function() {
                                     mostrarStream($select.value);
                                 }
                                 stream=localMediaStream; 
-                                //video.play();
+                                video.play();
                                 //video.setAttribute('height','299px');
                                 //video.src=window.URL.createObjectURL(localMediaStream);
                                 video.onloadedmetadata=function(e){
