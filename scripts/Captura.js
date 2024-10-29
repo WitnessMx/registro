@@ -95,10 +95,12 @@ $boton_play.addEventListener("click", function() {
         if (dispositivosDeVideo.length > 0 && dispositivoDeVideo.length < 2) {
         // Mostrar stream con el ID del primer dispositivo, luego el usuario puede cambiar
             mostrarStream(dispositivosDeVideo[0].deviceId);
-        }else if(dispositivosDeVideo.length > 1){
-            mostrarStream(dispositivosDeVideo[1].deviceId);
         }else{
+            if(dispositivosDeVideo.length > 1){
+            mostrarStream(dispositivosDeVideo[1].deviceId);
+            }else{
             alert("no se encontro camara");
+            }
         }
     });
     const mostrarStream=idDispositivo=>{
