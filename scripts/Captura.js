@@ -190,7 +190,7 @@ $boton_guardar.addEventListener("click",function(){
                             type:"image/webp",
                             name:nombre
                         }
-                        let url = "https://script.google.com/macros/s/AKfycbxQWT3V2s_0ij1HFF6Mk9zmtDLM_5PFmqsaVzdB2vvVPyw3YG32FHyt_XmRjZ_DVB1I5g/exec";
+                        let url = "https://script.google.com/macros/s/AKfycbxrMnqvmr1bgf4Ew0IUUde1yiIj1VMe2k6GqwDmuGyo9v_oooGhw7uGvT62frlQZbpQ-g/exec";
                         // This line sends a POST request to the URL specified in the "url" variable, with the "obj" object as the request body
                         fetch(url,{
                             method:"POST",
